@@ -14,9 +14,9 @@ class fileGenerator {
         console.log(import.meta.url, Deno.mainModule)
         try {
             // path of the template files
-            const sourceDirectory = `${path.dirname(path.fromFileUrl(import.meta.url))}/template/${this.runtime}/${this.language}`
+            const sourceDirectory = path.resolve(Deno.mainModule.replace('/mod.ts', ''), 'template', this.runtime, this.language)
             //path of the user directory where files will be copied
-            const destinationDirectory = `${Deno.cwd()}/${this.dirname}`
+            const destinationDirectory = path.resolve(Deno.cwd(), this.dirname)
             await copy(sourceDirectory, destinationDirectory);
             return true;
         } catch (e) {
