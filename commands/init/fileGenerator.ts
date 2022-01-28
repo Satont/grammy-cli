@@ -11,7 +11,7 @@ class fileGenerator {
         this.runtime = runtime;
     }
     async generateFiles() {
-        console.log(import.meta.url)
+        console.log(import.meta.url, Deno.mainModule)
         try {
             // path of the template files
             const sourceDirectory = `${path.dirname(path.fromFileUrl(import.meta.url))}/template/${this.runtime}/${this.language}`
