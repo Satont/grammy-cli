@@ -11,6 +11,7 @@ class fileGenerator {
         this.runtime = runtime;
     }
     async generateFiles() {
+        console.log(import.meta.url)
         try {
             // path of the template files
             const sourceDirectory = `${path.dirname(path.fromFileUrl(import.meta.url))}/template/${this.runtime}/${this.language}`
